@@ -71,6 +71,41 @@
   box-sizing: border-box;
 
   overflow: hidden;
+
+  scrollbar-color: var(--scrollbar-track-color, initial) var(--scrollbar-thumb-color, initial);
+  scrollbar-width: var(--scrollbar-width, initial);
+
+  &-styled {
+    &::-webkit-scrollbar {
+      width: var(--scrollbar-width, initial);
+
+      &:window-inactive {
+        width: var(--scrollbar-width-inactive, initial);
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--scrollbar-track-color, initial);
+      box-shadow: var(--scrollbar-track-box-shadow, initial);
+
+      &:window-inactive {
+        background-color: var(--scrollbar-track-color-inactive, initial);
+        box-shadow: var(--scrollbar-track-box-shadow-inactive, initial);
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-thumb-color, initial);
+      background-image: var(--scrollbar-thumb-background-image, initial);
+      box-shadow: var(--scrollbar-thumb-box-shadow, initial);
+
+      &:window-inactive {
+        background-color: var(--scrollbar-thumb-color-inactive, initial);
+        background-image: var(--scrollbar-thumb-background-image-inactive, initial);
+        box-shadow: var(--scrollbar-thumb-box-shadow-inactive, initial);
+      }
+    }
+  }
 }
 
 .scroll-y,
@@ -115,6 +150,7 @@
 :host(.content-sizing) {
   contain: none;
 }
+
 :host(.content-sizing) .inner-scroll {
   position: relative;
 }
